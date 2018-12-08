@@ -1,0 +1,51 @@
+{
+  "name": "princeton255/credit-info",
+  "description": "A Laravel package for quick integration with Credit Info API (Tanzania)",
+  "license": "MIT",
+  "keywords": [
+    "credit info tanzania"
+  ],
+  "type": "library",
+  "authors": [
+    {
+      "name": "Tumaini Mosha",
+      "email": "princeton.mosha@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "illuminate/support": "~5.7.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "~3.7.0",
+    "phpunit/phpunit": "^7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Princeton255\\CreditInfo\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Princeton255\\CreditInfo\\Tests\\": "tests"
+    },
+    "files": [
+      "vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"
+    ]
+  },
+  "scripts": {
+    "phpunit": "phpunit"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Princeton255\\CreditInfo\\CreditInfoServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  }
+}
