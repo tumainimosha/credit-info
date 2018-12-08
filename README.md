@@ -66,17 +66,21 @@ Remember the WSDL url should end with a `?wsdl` suffix, don't forget to add this
 
 
 ### Response Caching
+
 The package by default caches API response from Credit Info to speed up subsequent requests for the same data. 
 
-You can control this feature by setting the `CREDIT_INFO_CACHE_TTL` value in your `.env`. (See below)
+You can control this feature by setting the `CREDIT_INFO_CACHE_TTL` value in minutes in your `.env`. (See below)
+
 
 ```.env
-CREDIT_INFO_CACHE_TTL=1440 # Default is 24 hours = 1440 minutes
+CREDIT_INFO_CACHE_TTL=1440 # Default data is cached for 24 hours = 1440 minutes
 ```
+
 
 Set the value to zero(0) to completely disable caching.
 
 ### WSDL Caching
+
 Default behaviour of PHP Soap Client is to Cache WSDL files for improved performance. 
 
 However, during development you may require for debugging reasons to disable WSDL caching of the soap client. 
