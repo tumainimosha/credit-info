@@ -16,7 +16,7 @@ A Laravel package for quick integration with [Credit Info Tanzania](https://cred
 
 First this package in repositories section of your `composer.json`
 
-```metadata json
+```
 ...
     "repositories": [
         {
