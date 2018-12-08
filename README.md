@@ -16,7 +16,7 @@ A Laravel package for quick integration with [Credit Info Tanzania](https://cred
 
 First this package in repositories section of your `composer.json`
 
-```json
+```composer.json
 ...
     "repositories": [
         {
@@ -25,13 +25,14 @@ First this package in repositories section of your `composer.json`
         }
     ],
 ...
-
-
 ```
+
+
 Install via composer
 ```bash
 composer require princeton255/credit-info:dev-master
 ```
+
 
 ### Publish Configuration File
 
@@ -52,6 +53,7 @@ CREDIT_INFO_PASSWORD=your_api_password
 ```
 
 Apart from authentication configurations, the following remaining configurations are optional.
+
 
 ### URL
 The package config file comes with default API url pointing to production. 
@@ -79,6 +81,7 @@ CREDIT_INFO_CACHE_TTL=1440 # Default data is cached for 24 hours = 1440 minutes
 
 Set the value to zero(0) to completely disable caching.
 
+
 ### WSDL Caching
 
 Default behaviour of PHP Soap Client is to Cache WSDL files for improved performance. 
@@ -90,6 +93,7 @@ To do so set the `CREDIT_INFO_CACHE_WSDL` key in your `.env` file to `false` (Se
 ```.env
 CREDIT_INFO_CACHE_WSDL=false
 ```
+
 
 ## Usage
 
@@ -123,6 +127,7 @@ public function test() {
 
 ```
 
+
 ### TODO
 
 - [x] Vehicle Report
@@ -130,10 +135,12 @@ public function test() {
 - [ ] Driving license Report
 - [ ] National ID Report
 
+
 ## Security
 
 If you discover any security related issues, please email [Me](mailto:princeton.mosha@gmail.com?subject=Credit Info API Package Security Issue)
 instead of using the issue tracker.
+
 
 ## Credits
 
