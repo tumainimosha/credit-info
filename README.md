@@ -1,15 +1,5 @@
 # Credit Info (Tanzania) - API Adapter
 
-[![Build Status](https://travis-ci.org/princeton255/credit-info.svg?branch=master)](https://travis-ci.org/princeton255/credit-info)
-[![styleci](https://styleci.io/repos/CHANGEME/shield)](https://styleci.io/repos/CHANGEME)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/princeton255/credit-info/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/princeton255/credit-info/?branch=master)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/CHANGEME/mini.png)](https://insight.sensiolabs.com/projects/CHANGEME)
-[![Coverage Status](https://coveralls.io/repos/github/princeton255/credit-info/badge.svg?branch=master)](https://coveralls.io/github/princeton255/credit-info?branch=master)
-
-[![Packagist](https://img.shields.io/packagist/v/princeton255/credit-info.svg)](https://packagist.org/packages/princeton255/credit-info)
-[![Packagist](https://poser.pugx.org/princeton255/credit-info/d/total.svg)](https://packagist.org/packages/princeton255/credit-info)
-[![Packagist](https://img.shields.io/packagist/l/princeton255/credit-info.svg)](https://packagist.org/packages/princeton255/credit-info)
-
 A Laravel package for quick integration with [Credit Info Tanzania](https://creditinfo.co.tz) API.   
 
 ## Installation
