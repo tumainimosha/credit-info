@@ -1,4 +1,4 @@
-# Credit Info API Adapter
+# Credit Info (Tanzania) - API Adapter
 
 [![Build Status](https://travis-ci.org/princeton255/credit-info.svg?branch=master)](https://travis-ci.org/princeton255/credit-info)
 [![styleci](https://styleci.io/repos/CHANGEME/shield)](https://styleci.io/repos/CHANGEME)
@@ -14,16 +14,28 @@ A Laravel package for quick integration with [Credit Info Tanzania](https://cred
 
 ## Installation
 
+First this package in repositories section of your `composer.json`
+
+```json
+...
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@bitbucket.org:princeton255/credit-info.git"
+        }
+    ],
+...
+
+
+```
 Install via composer
 ```bash
-composer require princeton255/credit-info
+composer require princeton255/credit-info:dev-master
 ```
-
-### Register Service Provider
 
 ### Publish Configuration File
 
-** Optional. Only if you wish to customize the default package config.
+Optional! Publish config file only if you wish to customize the default package config.
 
 ```bash
 php artisan vendor:publish --provider="Princeton255\CreditInfo\ServiceProvider" --tag="config"
@@ -34,13 +46,19 @@ php artisan vendor:publish --provider="Princeton255\CreditInfo\ServiceProvider" 
 ### Authentication
 Configure your api username and password in `.env` file as follows
 
+```.env
 CREDIT_INFO_USERNAME=your_api_username
 CREDIT_INFO_PASSWORD=your_api_password
+```
+
+Apart from authentication configurations, the following remaining configurations are optional.
 
 ### URL
 The package config file comes with default API url pointing to production. To point to `test` environment set the CREDIT_INFO_WSDL key in your `.env` file to point to test url given. (See below)
 
+```.env
 CREDIT_INFO_WSDL=https://wstest.creditinfo.co.tz/WsReport/v5.39/service.svc?wsdl
+```
 
 Remember the WSDL url should end with a `?wsdl` suffix, don't forget to add this if you haven't already.
 
@@ -48,15 +66,18 @@ Remember the WSDL url should end with a `?wsdl` suffix, don't forget to add this
 ### Response Caching
 The package by default caches API response from Credit Info to speed up subsequent requests for the same data. You can control this feature by setting the `CREDIT_INFO_CACHE_TTL` value in your `.env`. (See below)
 
+```.env
 CREDIT_INFO_CACHE_TTL=1440 # Default is 24 hours = 1440 minutes
+```
 
 Set the value to zero(0) to completely disable caching.
 
 ### WSDL Caching
 Default behaviour of PHP Soap Client is to Cache WSDL files for improved performance. However, during development you may require for debugging reasons to disable WSDL caching of the soap client. To do so set the `CREDIT_INFO_CACHE_WSDL` key in your `.env` file to `false` (See below)
 
+```.env
 CREDIT_INFO_CACHE_WSDL=false
-
+```
 
 ## Usage
 
