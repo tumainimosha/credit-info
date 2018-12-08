@@ -54,7 +54,9 @@ CREDIT_INFO_PASSWORD=your_api_password
 Apart from authentication configurations, the following remaining configurations are optional.
 
 ### URL
-The package config file comes with default API url pointing to production. To point to `test` environment set the CREDIT_INFO_WSDL key in your `.env` file to point to test url given. (See below)
+The package config file comes with default API url pointing to production. 
+
+To point to `test` environment set the CREDIT_INFO_WSDL key in your `.env` file to point to test url given. (See below)
 
 ```.env
 CREDIT_INFO_WSDL=https://wstest.creditinfo.co.tz/WsReport/v5.39/service.svc?wsdl
@@ -64,7 +66,9 @@ Remember the WSDL url should end with a `?wsdl` suffix, don't forget to add this
 
 
 ### Response Caching
-The package by default caches API response from Credit Info to speed up subsequent requests for the same data. You can control this feature by setting the `CREDIT_INFO_CACHE_TTL` value in your `.env`. (See below)
+The package by default caches API response from Credit Info to speed up subsequent requests for the same data. 
+
+You can control this feature by setting the `CREDIT_INFO_CACHE_TTL` value in your `.env`. (See below)
 
 ```.env
 CREDIT_INFO_CACHE_TTL=1440 # Default is 24 hours = 1440 minutes
@@ -73,7 +77,11 @@ CREDIT_INFO_CACHE_TTL=1440 # Default is 24 hours = 1440 minutes
 Set the value to zero(0) to completely disable caching.
 
 ### WSDL Caching
-Default behaviour of PHP Soap Client is to Cache WSDL files for improved performance. However, during development you may require for debugging reasons to disable WSDL caching of the soap client. To do so set the `CREDIT_INFO_CACHE_WSDL` key in your `.env` file to `false` (See below)
+Default behaviour of PHP Soap Client is to Cache WSDL files for improved performance. 
+
+However, during development you may require for debugging reasons to disable WSDL caching of the soap client. 
+
+To do so set the `CREDIT_INFO_CACHE_WSDL` key in your `.env` file to `false` (See below)
 
 ```.env
 CREDIT_INFO_CACHE_WSDL=false
@@ -89,6 +97,8 @@ use Princeton255\CreditInfo\Exceptions\Exception;
 use Princeton255\CreditInfo\Facades\CreditInfo;
 
 ...
+
+public function test() {
     $registration = 't100abc';
     
     try {
@@ -96,10 +106,15 @@ use Princeton255\CreditInfo\Facades\CreditInfo;
     } 
     catch(DataNotFoundException $ex) {
         // Handle case if registration number not found
+        throw($ex);
     }
     catch(Exception $e) {
         // Handle other API errors
+        throw($e);
     }
+    
+    dd($details);
+}
 ...
 
 ```
@@ -113,7 +128,7 @@ use Princeton255\CreditInfo\Facades\CreditInfo;
 
 ## Security
 
-If you discover any security related issues, please email [Me](mailto:princeton.mosha@gmail.com?subject=Credit+Info+API+Package+%7C+Security+Issue)
+If you discover any security related issues, please email [Me](mailto:princeton.mosha@gmail.com?subject=Credit Info API Package Security Issue)
 instead of using the issue tracker.
 
 ## Credits
