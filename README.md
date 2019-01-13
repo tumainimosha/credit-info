@@ -1,10 +1,13 @@
-# Credit Info (Tanzania) - API Adapter
+# CreditInfo Tanzania - API Adapter
 
-A Laravel package for quick integration with [Credit Info Tanzania](https://creditinfo.co.tz) API.   
+The Unofficial [Credit Info Tanzania](https://creditinfo.co.tz) API wrapper for Laravel.   
+
+* [CreditInfo Tanzania website](https://tz.creditinfo.com/)
+* [WSDL](https://wstest.creditinfo.co.tz/WsReport/v5.39/service.svc?singleWsdl) (requires _Basic Auth_ authentication)
 
 ## Installation
 
-First this package in repositories section of your `composer.json`
+First add this package in repositories section of your `composer.json`
 
 ```
 ...
@@ -80,6 +83,7 @@ However, during development you may require for debugging reasons to disable WSD
 
 To do so set the `CREDIT_INFO_CACHE_WSDL` key in your `.env` file to `false` (See below)
 
+**Caution:** Disabling WSDL caching will significantly slow down performance. Please remember to always revert this option to `true` after you are done debugging.
 ```.env
 CREDIT_INFO_CACHE_WSDL=false
 ```
@@ -92,15 +96,16 @@ CREDIT_INFO_CACHE_WSDL=false
 ```php
 use Princeton255\CreditInfo\Exceptions\DataNotFoundException;
 use Princeton255\CreditInfo\Exceptions\Exception;
-use Princeton255\CreditInfo\Facades\CreditInfo;
+use Princeton255\CreditInfo\CreditInfo;
 
 ...
 
 public function test() {
     $registration = 't100abc';
     
+    $creditInfoService = new CreditInfo();
     try {
-        $details = CreditInfo::getVehicleReport($registration);
+        $details = $creditInfoService->getVehicleReport($registration);
     } 
     catch(DataNotFoundException $ex) {
         // Handle case if registration number not found
@@ -128,7 +133,7 @@ public function test() {
 
 ## Security
 
-If you discover any security related issues, please email [Me](mailto:princeton.mosha@gmail.com?subject=Credit Info API Package Security Issue)
+If you discover any security related issues, please email [Me](mailto:princeton.mosha@gmail.com?subject=Credit+Info+API+Package+Security+Issue)
 instead of using the issue tracker.
 
 
