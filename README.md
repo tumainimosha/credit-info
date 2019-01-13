@@ -3,7 +3,7 @@
 The Unofficial [Credit Info Tanzania](https://creditinfo.co.tz) API wrapper for Laravel.   
 
 * [CreditInfo Tanzania website](https://tz.creditinfo.com/)
-* [WSDL](https://wstest.creditinfo.co.tz/WsReport/v5.39/service.svc?singleWsdl) (requires _Basic Auth_ authentication)
+* [WSDL](files/credit-info.wsdl.xml)
 
 ## Installation
 
@@ -49,15 +49,21 @@ Apart from authentication configurations, the following remaining configurations
 
 
 ### URL
-The package config file comes with default API url pointing to production. 
+The package config file comes with default API url pointing to `production`. 
+
+```dotenv
+CREDIT_INFO_WSDL=https://ws.creditinfo.co.tz/WsReport/v5.39/service.svc?wsdl
+```
 
 To point to `test` environment set the CREDIT_INFO_WSDL key in your `.env` file to point to test url given. (See below)
 
-```.env
+```dotenv
 CREDIT_INFO_WSDL=https://wstest.creditinfo.co.tz/WsReport/v5.39/service.svc?wsdl
 ```
 
-Remember the WSDL url should end with a `?wsdl` suffix, don't forget to add this if you haven't already.
+Remember 
+* The WSDL url should end with a `?wsdl` suffix, don't forget to add this if you haven't already.
+* You need to first configure correct [Authentication](#authentication) details above for your respective environment, as the WSDL url secured with Basic Auth.
 
 
 ### Response Caching
@@ -94,9 +100,9 @@ CREDIT_INFO_CACHE_WSDL=false
 ### Get Vehicle Information
 
 ```php
-use Princeton255\CreditInfo\Exceptions\DataNotFoundException;
-use Princeton255\CreditInfo\Exceptions\Exception;
-use Princeton255\CreditInfo\CreditInfo;
+use CreditInfo\Exceptions\DataNotFoundException;
+use CreditInfo\Exceptions\Exception;
+use CreditInfo\CreditInfo;
 
 ...
 

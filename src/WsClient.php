@@ -1,6 +1,6 @@
 <?php
 
-namespace Princeton255\CreditInfo;
+namespace CreditInfo;
 
 class WsClient extends \SoapClient
 {

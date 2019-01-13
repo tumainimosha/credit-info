@@ -1,6 +1,6 @@
 <?php
 
-namespace Princeton255\CreditInfo\Facades;
+namespace CreditInfo\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

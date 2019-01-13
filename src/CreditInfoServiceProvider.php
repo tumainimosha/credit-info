@@ -1,6 +1,6 @@
 <?php
 
-namespace Princeton255\CreditInfo;
+namespace CreditInfo;
 
 use Illuminate\Support\ServiceProvider;
 

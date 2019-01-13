@@ -1,8 +1,8 @@
 <?php
 
-namespace Princeton255\CreditInfo;
+namespace CreditInfo;
 
-use Princeton255\CreditInfo\Services\VehicleReportService;
+use CreditInfo\Services\VehicleReportService;
 
 class CreditInfo
 {

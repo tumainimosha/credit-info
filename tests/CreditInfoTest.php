@@ -1,10 +1,10 @@
 <?php
 
-namespace Princeton255\CreditInfo\Tests;
+namespace CreditInfo\Tests;
 
+use CreditInfo\CreditInfoServiceProvider;
+use CreditInfo\Facades\CreditInfo;
 use Orchestra\Testbench\TestCase;
-use Princeton255\CreditInfo\CreditInfoServiceProvider;
-use Princeton255\CreditInfo\Facades\CreditInfo;
 
 class CreditInfoTest extends TestCase
 {
