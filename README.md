@@ -3,27 +3,14 @@
 The Unofficial [Credit Info Tanzania](https://creditinfo.co.tz) API wrapper for Laravel.   
 
 * [CreditInfo Tanzania website](https://tz.creditinfo.com/)
-* [WSDL](files/credit-info.wsdl.xml)
+* [WSDL](https://wstest.creditinfo.co.tz/WsReport/v5.39/service.svc?singleWsdl) (requires _Basic Auth_ authentication)
 
 ## Installation
 
-First add this package in repositories section of your `composer.json`
-
-```
-...
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@bitbucket.org:princeton255/credit-info.git"
-        }
-    ],
-...
-```
-
-
 Install via composer
+
 ```bash
-composer require princeton255/credit-info:dev-master
+composer require princeton255/credit-info
 ```
 
 
@@ -32,7 +19,7 @@ composer require princeton255/credit-info:dev-master
 Optional! Publish config file only if you wish to customize the default package config.
 
 ```bash
-php artisan vendor:publish --provider="Princeton255\CreditInfo\ServiceProvider" --tag="config"
+php artisan vendor:publish --provider="CreditInfo\ServiceProvider" --tag="config"
 ```
 
 ## Configuration
@@ -47,6 +34,7 @@ CREDIT_INFO_PASSWORD=your_api_password
 
 Apart from authentication configurations, the following remaining configurations are optional.
 
+For basic usage jump straight to [Usage Section](#usage)
 
 ### URL
 The package config file comes with default API url pointing to `production`. 
@@ -63,7 +51,7 @@ CREDIT_INFO_WSDL=https://wstest.creditinfo.co.tz/WsReport/v5.39/service.svc?wsdl
 
 Remember 
 * The WSDL url should end with a `?wsdl` suffix, don't forget to add this if you haven't already.
-* You need to first configure correct [Authentication](#authentication) details above for your respective environment, as the WSDL url secured with Basic Auth.
+* You need to first configure correct [Authentication](#authentication) details above for your respective environment, as the WSDL url is secured with Basic Auth.
 
 
 ### Response Caching
@@ -72,9 +60,10 @@ The package by default caches API response from Credit Info to speed up subseque
 
 You can control this feature by setting the `CREDIT_INFO_CACHE_TTL` value in minutes in your `.env`. (See below)
 
+By default data is cached for 24 hours = 1440 minutes
 
 ```.env
-CREDIT_INFO_CACHE_TTL=1440 # Default data is cached for 24 hours = 1440 minutes
+CREDIT_INFO_CACHE_TTL=1440
 ```
 
 
@@ -98,6 +87,20 @@ CREDIT_INFO_CACHE_WSDL=false
 ## Usage
 
 ### Get Vehicle Information
+
+Method `getVehicleReport()` queries vehicle information database by Vehicle Registration ID
+
+```php 
+$creditInfoService = new \CreditInfo\CreditInfo();
+$details = $creditInfoService->getVehicleReport($registration_number);```
+```
+
+This method throws the following exceptions
+1. `CreditInfo\Exceptions\DataNotFoundException` if no data on for given reference number
+2. `CreditInfo\Exceptions\TimeoutException` if request times out
+3. `CreditInfo\Exceptions\Exception` generic exception for all other errors
+
+See usage below with exception catching
 
 ```php
 use CreditInfo\Exceptions\DataNotFoundException;
