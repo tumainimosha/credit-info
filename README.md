@@ -1,4 +1,4 @@
-# CreditInfo Tanzania - API Adapter
+# Credit Info (TZ) API
 
 The Unofficial [Credit Info Tanzania](https://creditinfo.co.tz) API wrapper for Laravel.   
 
