@@ -3,7 +3,7 @@
 The Unofficial [Credit Info Tanzania](https://creditinfo.co.tz) API wrapper for Laravel.   
 
 * [CreditInfo Tanzania website](https://tz.creditinfo.com/)
-* [WSDL](https://wstest.creditinfo.co.tz/WsReport/v5.39/service.svc?singleWsdl) (requires _Basic Auth_ authentication)
+* [WSDL](https://ws.creditinfo.co.tz/WsReport/v5.39/service.svc?singleWsdl) (requires _Basic Auth_ authentication)
 
 ## Installation
 
