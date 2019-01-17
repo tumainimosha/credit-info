@@ -27,7 +27,7 @@ php artisan vendor:publish --provider="CreditInfo\ServiceProvider" --tag="config
 ### Authentication
 Configure your api username and password in `.env` file as follows
 
-```.env
+```dotenv
 CREDIT_INFO_USERNAME=your_api_username
 CREDIT_INFO_PASSWORD=your_api_password
 ```
@@ -62,7 +62,7 @@ You can control this feature by setting the `CREDIT_INFO_CACHE_TTL` value in min
 
 By default data is cached for 24 hours = 1440 minutes
 
-```.env
+```dotenv
 CREDIT_INFO_CACHE_TTL=1440
 ```
 
@@ -79,7 +79,7 @@ However, during development you may require for debugging reasons to disable WSD
 To do so set the `CREDIT_INFO_CACHE_WSDL` key in your `.env` file to `false` (See below)
 
 **Caution:** Disabling WSDL caching will significantly slow down performance. Please remember to always revert this option to `true` after you are done debugging.
-```.env
+```dotenv
 CREDIT_INFO_CACHE_WSDL=false
 ```
 
