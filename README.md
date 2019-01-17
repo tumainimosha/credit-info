@@ -151,5 +151,6 @@ instead of using the issue tracker.
 - [Tumaini Mosha](https://github.com/princeton255)
 - [All contributors](https://github.com/princeton255/credit-info/graphs/contributors)
 
+
 This package is bootstrapped with the help of
 [melihovv/laravel-package-generator](https://github.com/melihovv/laravel-package-generator).
