@@ -79,6 +79,7 @@ However, during development you may require for debugging reasons to disable WSD
 To do so set the `CREDIT_INFO_CACHE_WSDL` key in your `.env` file to `false` (See below)
 
 **Caution:** Disabling WSDL caching will significantly slow down performance. Please remember to always revert this option to `true` after you are done debugging.
+
 ```dotenv
 CREDIT_INFO_CACHE_WSDL=false
 ```
