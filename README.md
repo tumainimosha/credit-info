@@ -10,7 +10,7 @@ The Unofficial [Credit Info Tanzania](https://creditinfo.co.tz) API wrapper for 
 Install via composer
 
 ```bash
-composer require princeton255/credit-info
+composer require tumainimosha/credit-info
 ```
 
 
@@ -86,7 +86,7 @@ CREDIT_INFO_CACHE_WSDL=false
 
 ## Usage
 
-### Get Vehicle Information
+### 1. Get Vehicle Information
 
 Method `getVehicleReport()` queries vehicle information database by Vehicle Registration ID
 
