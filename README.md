@@ -92,7 +92,7 @@ Method `getVehicleReport()` queries vehicle information database by Vehicle Regi
 
 ```php 
 $creditInfoService = new \CreditInfo\CreditInfo();
-$details = $creditInfoService->getVehicleReport($registration_number);```
+$details = $creditInfoService->getVehicleReport($registration_number);
 ```
 
 This method throws the following exceptions
