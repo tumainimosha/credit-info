@@ -137,7 +137,7 @@ public function test() {
 
 - [x] Vehicle Report
 - [ ] TIN Report
-- [ ] Driving license Report
+- [x] Driving license Report
 - [ ] National ID Report
 
 
