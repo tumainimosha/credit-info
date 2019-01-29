@@ -10,11 +10,11 @@ class VehicleReportService extends GetExternalReportService
 {
     /**
      * @param $registration
-     * @return mixed
+     * @return array
      * @throws DataNotFoundException
      * @throws Exception
      */
-    public function __invoke($registration)
+    public function __invoke($registration): array
     {
         $registration = preg_replace('/[^a-zA-Z0-9]/', '', strtolower(trim($registration))); //sanitize
 
