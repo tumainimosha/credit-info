@@ -1,5 +1,11 @@
 # Credit Info (TZ) API
 
+
+[![Latest Stable Version](https://poser.pugx.org/tumainimosha/credit-info/v/stable)](https://packagist.org/packages/tumainimosha/credit-info)
+[![License](https://poser.pugx.org/princeton255/tumainimosha/credit-info/license)](https://packagist.org/packages/tumainimosha/credit-info)
+[![Total Downloads](https://poser.pugx.org/tumainimosha/credit-info/downloads)](https://packagist.org/packages/tumainimosha/credit-info)
+
+
 The Unofficial [Credit Info Tanzania](https://creditinfo.co.tz) API wrapper for Laravel.   
 
 * [CreditInfo Tanzania website](https://tz.creditinfo.com/)
