@@ -4,8 +4,10 @@ namespace CreditInfo\Services;
 
 use CreditInfo\Exceptions\DataNotFoundException;
 use CreditInfo\Exceptions\Exception;
+use CreditInfo\Exceptions\InvalidReferenceNumberException;
 use CreditInfo\Exceptions\TimeoutException;
 use CreditInfo\WsClient;
+use Illuminate\Support\Facades\Cache;
 
 abstract class GetExternalReportService
 {
@@ -14,12 +16,47 @@ abstract class GetExternalReportService
      */
     protected $client;
 
+    abstract protected function getRequestName(): string;
+
+    abstract protected function getRequestParameterName(): string;
+
     /**
      * @param WsClient $client
      */
     public function __construct(WsClient $client)
     {
         $this->client = $client;
+    }
+
+    /**
+     * @param $reference
+     * @return array
+     * @throws InvalidReferenceNumberException
+     * @throws DataNotFoundException
+     * @throws Exception
+     */
+    public function __invoke($reference): array
+    {
+        $class_name = $this->getClassName();
+
+        $reference = preg_replace('/[^a-zA-Z0-9]/', '', strtolower(trim($reference))); //sanitize
+
+        logger("Fetching $class_name for reference: $reference");
+
+        $cache_key = config('credit-info.cache_prefix') . $class_name . $reference;
+        $cache_ttl = config('credit-info.cache_response_ttl');
+
+        $details = Cache::remember(
+            $cache_key,
+            now()->addMinutes($cache_ttl),
+            function () use ($reference) {
+                return $this->getDetails($reference);
+            }
+        );
+
+        logger("$class_name details found!", $details);
+
+        return array_get($details, 'ReportDetail');
     }
 
     /**
@@ -41,10 +78,6 @@ abstract class GetExternalReportService
 
         return $this->parseResponse($response);
     }
-
-    abstract protected function getRequestName(): string;
-
-    abstract protected function getRequestParameterName(): string;
 
     /**
      * @param $reference
@@ -78,7 +111,9 @@ abstract class GetExternalReportService
         $response_xml = $response->GetExternalReportResult->any;
         $response_xml = new \SimpleXMLElement($response_xml);
 
-        switch ((string) $response_xml->Header->Status) {
+        $responseHeader = $this->getResponseHeaderName();
+
+        switch ((string) $response_xml->$responseHeader->Status) {
             // Timeout
             case 'Timeout':
                 throw new TimeoutException($response_xml->Header->ErrorMessage);
@@ -96,5 +131,17 @@ abstract class GetExternalReportService
             default:
                 throw new Exception($response_xml->Header->ErrorMessage ?? null);
         }
+    }
+
+    protected function getClassName()
+    {
+        $path = explode('\\', __CLASS__);
+
+        return array_pop($path);
+    }
+
+    protected function getResponseHeaderName(): string
+    {
+        return 'Header';
     }
 }

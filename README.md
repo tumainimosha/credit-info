@@ -136,9 +136,9 @@ public function test() {
 ### TODO
 
 - [x] Vehicle Report
-- [ ] TIN Report
 - [x] Driving license Report
-- [ ] National ID Report
+- [x] National ID Report
+- [ ] TIN Report
 
 
 ## Security

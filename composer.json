@@ -1,55 +1,55 @@
 {
-  "name": "tumainimosha/credit-info",
-  "type": "library",
-  "description": "A Laravel package for integration with Credit Info (Tanzania) API",
-  "keywords": [
-    "credit info tanzania"
-  ],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Tumaini Mosha",
-      "email": "princeton.mosha@gmail.com"
-    }
-  ],
-  "require": {
-    "php": ">=7.0",
-    "ext-json": "*",
-    "ext-simplexml": "*",
-    "ext-soap": "*",
-    "illuminate/support": "~5.7.0"
-  },
-  "require-dev": {
-    "friendsofphp/php-cs-fixer": "^2.13",
-    "orchestra/testbench": "~3.7.0",
-    "phpunit/phpunit": "^7.0"
-  },
-  "config": {
-    "optimize-autoloader": true,
-    "preferred-install": "dist",
-    "sort-packages": true
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "CreditInfo\\CreditInfoServiceProvider"
-      ]
-    }
-  },
-  "autoload": {
-    "psr-4": {
-      "CreditInfo\\": "src"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "CreditInfoTest\\": "tests"
+    "name": "tumainimosha/credit-info",
+    "type": "library",
+    "description": "A Laravel package for integration with Credit Info (Tanzania) API",
+    "keywords": [
+        "credit-info", "credit-info tz"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tumaini Mosha",
+            "email": "princeton.mosha@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "ext-json": "*",
+        "ext-simplexml": "*",
+        "ext-soap": "*",
+        "illuminate/support": "~5.7.0"
     },
-    "files": [
-      "vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"
-    ]
-  },
-  "scripts": {
-    "test": "phpunit"
-  }
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.13",
+        "orchestra/testbench": "~3.7.0",
+        "phpunit/phpunit": "^7.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CreditInfo\\CreditInfoServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "CreditInfo\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CreditInfoTest\\": "tests"
+        },
+        "files": [
+            "vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"
+        ]
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
 }
