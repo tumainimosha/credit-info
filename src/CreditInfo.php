@@ -3,6 +3,7 @@
 namespace CreditInfo;
 
 use CreditInfo\Services\DrivingLicenseReportService;
+use CreditInfo\Services\NationalIdReportService;
 use CreditInfo\Services\VehicleReportService;
 
 class CreditInfo
@@ -46,7 +47,7 @@ class CreditInfo
     public function getNationalIdReport($id_number)
     {
         /** @var DrivingLicenseReportService $service */
-        $service = app(DrivingLicenseReportService::class);
+        $service = app(NationalIdReportService::class);
 
         return $service($id_number);
     }
