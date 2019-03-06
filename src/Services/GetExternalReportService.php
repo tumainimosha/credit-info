@@ -111,9 +111,7 @@ abstract class GetExternalReportService
         $response_xml = $response->GetExternalReportResult->any;
         $response_xml = new \SimpleXMLElement($response_xml);
 
-        $responseHeader = $this->getResponseHeaderName();
-
-        switch ((string) $response_xml->$responseHeader->Status) {
+        switch ((string) $response_xml->Header->Status) {
             // Timeout
             case 'Timeout':
                 throw new TimeoutException($response_xml->Header->ErrorMessage);
@@ -138,10 +136,5 @@ abstract class GetExternalReportService
         $path = explode('\\', __CLASS__);
 
         return array_pop($path);
-    }
-
-    protected function getResponseHeaderName(): string
-    {
-        return 'Header';
     }
 }

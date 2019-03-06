@@ -16,11 +16,6 @@ class NationalIdReportService extends GetExternalReportService
         return 'NationalId';
     }
 
-    protected function getResponseHeaderName(): string
-    {
-        return 'FullDemographicReport';
-    }
-
     /**
      * @param $reference
      * @return array
