@@ -14,7 +14,7 @@ class CreditInfo
      * @throws Exceptions\DataNotFoundException
      * @throws Exceptions\Exception
      */
-    public function getVehicleReport(string $registration): array 
+    public function getVehicleReport(string $registration): array
     {
         /** @var VehicleReportService $vehicleReportService */
         $vehicleReportService = app(VehicleReportService::class);

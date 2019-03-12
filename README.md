@@ -96,6 +96,7 @@ CREDIT_INFO_CACHE_WSDL=false
 1. [Vehicle Report](#vehicle-report)
 2. [Driving License Report](#driving-license-report)
 3. [National Id Report](#national-id-report)
+4. [Exception Handling](#exception-handling)
 
 ### Vehicle Report
 
@@ -124,6 +125,8 @@ Method `getNationalIdReport()` queries an individual information by National Id 
 $creditInfoService = new \CreditInfo\CreditInfo();
 $details = $creditInfoService->getNationalIdReport($national_id);
 ```
+
+### Exception Handling
 
 The above methods throws the following exceptions
 1. `CreditInfo\Exceptions\Exception` generic exception. All exceptions from this library inherit from it. This should be caught last as a catch-all statement.
@@ -170,54 +173,52 @@ public function testVehicleInfo() {
     dd($details);
     
     /**
-    
-    array:27 [
-      "VehicleRegistrationNumber" => "T100ABC"
-      "Blocked" => "No"
-      "Deregistered" => "No"
-      "ChassisNumber" => "A15009882"
-      "EngineNumber" => "ABADsd197"
-      "Color" => "Black"
-      "SeatingCapacity" => "5"
-      "TareWeight" => "1080.00"
-      "GrossWeight" => "1300.00"
-      "YearOfMake" => "2010"
-      "BodyType" => "Saloon (closed top)"
-      "Manufacturer" => "Toyota"
-      "Model" => "Corolla"
-      "ModelNumber" => "AB12"
-      "LicenseIssueDate" => "2017-04-28T09:00:09.31+03:00"
-      "LicenseValidFrom" => "2017-04-21T00:00:00+03:00"
-      "LicenseValidTo" => "2018-04-20T00:00:00+03:00"
-      "OwnerTaxPayerNumber" => "103097614"
-      "OwnerName" => "JOHN DOE USER"
-      "OwnerCategory" => "Sole Proprietor"
-      "OwnerAddressText" => "Street_Location: Example Street, P_O_Box: 1234, Region: 010, City: DAR ES SALAAM, Dist: 0022"
-      "OwnerAddress" => array:7 [
-        "PlotNumber" => []
-        "BlockNumber" => []
-        "Street" => "Example Street"
-        "PoBox" => "1234"
-        "Region" => "010"
-        "City" => "DAR ES SALAAM"
-        "District" => "0022"
-      ]
-      "TitleHolderTaxPayerNumber" => "1234567"8
-      "TitleHolderName" => "JOHN DOE USER"
-      "TitleHolderCategory" => "Sole Proprietor"
-      "TitleHolderAddressText" => "Street_Location: Example Street, P_O_Box: 1234, Region: 010, City: DAR ES SALAAM, Dist: 0022"
-      "TitleHolderAddress" => array:7 [
-        "PlotNumber" => []
-        "BlockNumber" => []
-        "Street" => "Example Street"
-        "PoBox" => "1234"
-        "Region" => "010"
-        "City" => "DAR ES SALAAM"
-        "District" => "0022"
-      ]
-    ]
-    
-    **/
+         array:27 [
+            "VehicleRegistrationNumber" => "T100ABC"
+            "Blocked" => "No"
+            "Deregistered" => "No"
+            "ChassisNumber" => "A15009882"
+            "EngineNumber" => "ABADsd197"
+            "Color" => "Black"
+            "SeatingCapacity" => "5"
+            "TareWeight" => "1080.00"
+            "GrossWeight" => "1300.00"
+            "YearOfMake" => "2010"
+            "BodyType" => "Saloon (closed top)"
+            "Manufacturer" => "Toyota"
+            "Model" => "Corolla"
+            "ModelNumber" => "AB12"
+            "LicenseIssueDate" => "2017-04-28T09:00:09.31+03:00"
+            "LicenseValidFrom" => "2017-04-21T00:00:00+03:00"
+            "LicenseValidTo" => "2018-04-20T00:00:00+03:00"
+            "OwnerTaxPayerNumber" => "103097614"
+            "OwnerName" => "JOHN DOE USER"
+            "OwnerCategory" => "Sole Proprietor"
+            "OwnerAddressText" => "Street_Location: Example Street, P_O_Box: 1234, Region: 010, City: DAR ES SALAAM, Dist: 0022"
+            "OwnerAddress" => array:7 [
+                "PlotNumber" => []
+                "BlockNumber" => []
+                "Street" => "Example Street"
+                "PoBox" => "1234"
+                "Region" => "010"
+                "City" => "DAR ES SALAAM"
+                "District" => "0022"
+            ]
+            "TitleHolderTaxPayerNumber" => "1234567"8
+            "TitleHolderName" => "JOHN DOE USER"
+            "TitleHolderCategory" => "Sole Proprietor"
+            "TitleHolderAddressText" => "Street_Location: Example Street, P_O_Box: 1234, Region: 010, City: DAR ES SALAAM, Dist: 0022"
+            "TitleHolderAddress" => array:7 [
+                "PlotNumber" => []
+                "BlockNumber" => []
+                "Street" => "Example Street"
+                "PoBox" => "1234"
+                "Region" => "010"
+                "City" => "DAR ES SALAAM"
+                "District" => "0022"
+            ]
+        ]
+     */
 }
 ...
 
