@@ -132,10 +132,10 @@ The above methods throws the following exceptions
 
 | Exception                                               | Condition                                                                                                                                     |
 |---------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| `CreditInfo\Exceptions\Exception`                       | This is the package's base exception. All exceptions from this library inherit from it. <br><br> This should be caught last as a catch-all statement. |
+| `CreditInfo\Exceptions\Exception`                       | This is the package's base exception. All exceptions from this library inherit from it. <br><br> *** This should be caught last as a catch-all statement. |
 | `CreditInfo\Exceptions\InvalidReferenceNumberException` | Thrown if supplied reference number fails validation requirements.                                                                            |
 | `CreditInfo\Exceptions\DataNotFoundException`           | Thrown if no data found for given reference number                                                                                           |
-| `CreditInfo\Exceptions\TimeoutException`                | Thrown if request times-out                                                                                                                   |
+| `CreditInfo\Exceptions\TimeoutException`                | Thrown if request timeouts                                                                                                                   |
 
 See usage below with exception catching
 
