@@ -93,36 +93,71 @@ CREDIT_INFO_CACHE_WSDL=false
 
 ## Usage
 
-### 1. Get Vehicle Information
+1. [Vehicle Report](#vehicle-report)
+2. [Driving License Report](#driving-license-report)
+3. [National Id Report](#national-id-report)
 
-Method `getVehicleReport()` queries vehicle information database by Vehicle Registration ID
+### Vehicle Report
+
+Method `getVehicleReport()` queries vehicle information by Vehicle Registration ID
 
 ```php 
 $creditInfoService = new \CreditInfo\CreditInfo();
 $details = $creditInfoService->getVehicleReport($registration_number);
 ```
 
-This method throws the following exceptions
-1. `CreditInfo\Exceptions\DataNotFoundException` if no data on for given reference number
-2. `CreditInfo\Exceptions\TimeoutException` if request times out
-3. `CreditInfo\Exceptions\Exception` generic exception for all other errors
+### Driving License Report
+
+Method `getDrivingLicenseReport()` queries drivers license information by Driving License Number
+
+```php 
+$creditInfoService = new \CreditInfo\CreditInfo();
+$details = $creditInfoService->getDrivingLicenseReport($driving_license_no);
+```
+
+
+### National Id Report
+
+Method `getNationalIdReport()` queries an individual information by National Id Number
+
+```php 
+$creditInfoService = new \CreditInfo\CreditInfo();
+$details = $creditInfoService->getNationalIdReport($national_id);
+```
+
+The above methods throws the following exceptions
+1. `CreditInfo\Exceptions\Exception` generic exception. All exceptions from this library inherit from it. This should be caught last as a catch-all statement.
+2. `CreditInfo\Exceptions\InvalidReferenceNumberException` thrown if supplied reference number fails validation requirements.
+3. `CreditInfo\Exceptions\DataNotFoundException` thrown if no data found for given reference number
+4. `CreditInfo\Exceptions\TimeoutException` thrown if request times-out
 
 See usage below with exception catching
 
 ```php
 use CreditInfo\Exceptions\DataNotFoundException;
 use CreditInfo\Exceptions\Exception;
+use CreditInfo\Exceptions\InvalidReferenceNumberException;
+use CreditInfo\Exceptions\TimeoutException;
 use CreditInfo\CreditInfo;
 
 ...
 
-public function test() {
+public function testVehicleInfo() {
+
     $registration = 't100abc';
     
     $creditInfoService = new CreditInfo();
     try {
         $details = $creditInfoService->getVehicleReport($registration);
     } 
+    catch(InvalidReferenceNumberException $ex) {
+        // Handle case invalid reference number case
+        throw($ex);
+    }
+    catch(TimeoutException $ex) {
+        // Handle case if request timeout
+        throw($ex);
+    }
     catch(DataNotFoundException $ex) {
         // Handle case if registration number not found
         throw($ex);
@@ -133,6 +168,56 @@ public function test() {
     }
     
     dd($details);
+    
+    /**
+    
+    array:27 [
+      "VehicleRegistrationNumber" => "T100ABC"
+      "Blocked" => "No"
+      "Deregistered" => "No"
+      "ChassisNumber" => "A15009882"
+      "EngineNumber" => "ABADsd197"
+      "Color" => "Black"
+      "SeatingCapacity" => "5"
+      "TareWeight" => "1080.00"
+      "GrossWeight" => "1300.00"
+      "YearOfMake" => "2010"
+      "BodyType" => "Saloon (closed top)"
+      "Manufacturer" => "Toyota"
+      "Model" => "Corolla"
+      "ModelNumber" => "AB12"
+      "LicenseIssueDate" => "2017-04-28T09:00:09.31+03:00"
+      "LicenseValidFrom" => "2017-04-21T00:00:00+03:00"
+      "LicenseValidTo" => "2018-04-20T00:00:00+03:00"
+      "OwnerTaxPayerNumber" => "103097614"
+      "OwnerName" => "JOHN DOE USER"
+      "OwnerCategory" => "Sole Proprietor"
+      "OwnerAddressText" => "Street_Location: Example Street, P_O_Box: 1234, Region: 010, City: DAR ES SALAAM, Dist: 0022"
+      "OwnerAddress" => array:7 [
+        "PlotNumber" => []
+        "BlockNumber" => []
+        "Street" => "Example Street"
+        "PoBox" => "1234"
+        "Region" => "010"
+        "City" => "DAR ES SALAAM"
+        "District" => "0022"
+      ]
+      "TitleHolderTaxPayerNumber" => "1234567"8
+      "TitleHolderName" => "JOHN DOE USER"
+      "TitleHolderCategory" => "Sole Proprietor"
+      "TitleHolderAddressText" => "Street_Location: Example Street, P_O_Box: 1234, Region: 010, City: DAR ES SALAAM, Dist: 0022"
+      "TitleHolderAddress" => array:7 [
+        "PlotNumber" => []
+        "BlockNumber" => []
+        "Street" => "Example Street"
+        "PoBox" => "1234"
+        "Region" => "010"
+        "City" => "DAR ES SALAAM"
+        "District" => "0022"
+      ]
+    ]
+    
+    **/
 }
 ...
 
