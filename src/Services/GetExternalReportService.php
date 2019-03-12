@@ -132,7 +132,7 @@ abstract class GetExternalReportService
     }
 
     /**
-     * Returns name of the current class without namespace
+     * Returns name of the current class without namespace.
      *
      * @return string
      */

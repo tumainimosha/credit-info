@@ -2,10 +2,6 @@
 
 namespace CreditInfo\Services;
 
-use CreditInfo\Exceptions\DataNotFoundException;
-use CreditInfo\Exceptions\Exception;
-use Illuminate\Support\Facades\Cache;
-
 class VehicleReportService extends GetExternalReportService
 {
     protected function getRequestName(): string
