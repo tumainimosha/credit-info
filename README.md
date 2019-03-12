@@ -172,53 +172,6 @@ public function testVehicleInfo() {
     
     dd($details);
     
-    /**
-         array:27 [
-            "VehicleRegistrationNumber" => "T100ABC"
-            "Blocked" => "No"
-            "Deregistered" => "No"
-            "ChassisNumber" => "A15009882"
-            "EngineNumber" => "ABADsd197"
-            "Color" => "Black"
-            "SeatingCapacity" => "5"
-            "TareWeight" => "1080.00"
-            "GrossWeight" => "1300.00"
-            "YearOfMake" => "2010"
-            "BodyType" => "Saloon (closed top)"
-            "Manufacturer" => "Toyota"
-            "Model" => "Corolla"
-            "ModelNumber" => "AB12"
-            "LicenseIssueDate" => "2017-04-28T09:00:09.31+03:00"
-            "LicenseValidFrom" => "2017-04-21T00:00:00+03:00"
-            "LicenseValidTo" => "2018-04-20T00:00:00+03:00"
-            "OwnerTaxPayerNumber" => "103097614"
-            "OwnerName" => "JOHN DOE USER"
-            "OwnerCategory" => "Sole Proprietor"
-            "OwnerAddressText" => "Street_Location: Example Street, P_O_Box: 1234, Region: 010, City: DAR ES SALAAM, Dist: 0022"
-            "OwnerAddress" => array:7 [
-                "PlotNumber" => []
-                "BlockNumber" => []
-                "Street" => "Example Street"
-                "PoBox" => "1234"
-                "Region" => "010"
-                "City" => "DAR ES SALAAM"
-                "District" => "0022"
-            ]
-            "TitleHolderTaxPayerNumber" => "1234567"8
-            "TitleHolderName" => "JOHN DOE USER"
-            "TitleHolderCategory" => "Sole Proprietor"
-            "TitleHolderAddressText" => "Street_Location: Example Street, P_O_Box: 1234, Region: 010, City: DAR ES SALAAM, Dist: 0022"
-            "TitleHolderAddress" => array:7 [
-                "PlotNumber" => []
-                "BlockNumber" => []
-                "Street" => "Example Street"
-                "PoBox" => "1234"
-                "Region" => "010"
-                "City" => "DAR ES SALAAM"
-                "District" => "0022"
-            ]
-        ]
-     */
 }
 ...
 
