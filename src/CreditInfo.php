@@ -9,12 +9,12 @@ use CreditInfo\Services\VehicleReportService;
 class CreditInfo
 {
     /**
-     * @param $registration
+     * @param string $registration
      * @return array
      * @throws Exceptions\DataNotFoundException
      * @throws Exceptions\Exception
      */
-    public function getVehicleReport($registration)
+    public function getVehicleReport(string $registration): array 
     {
         /** @var VehicleReportService $vehicleReportService */
         $vehicleReportService = app(VehicleReportService::class);
@@ -23,13 +23,13 @@ class CreditInfo
     }
 
     /**
-     * @param $license_no
+     * @param string $license_no
      * @return array
      * @throws Exceptions\InvalidReferenceNumberException
      * @throws Exceptions\DataNotFoundException
      * @throws Exceptions\Exception
      */
-    public function getDrivingLicenseReport($license_no)
+    public function getDrivingLicenseReport(string $license_no): array
     {
         /** @var DrivingLicenseReportService $service */
         $service = app(DrivingLicenseReportService::class);
@@ -38,13 +38,13 @@ class CreditInfo
     }
 
     /**
-     * @param $id_number
+     * @param string $id_number
      * @return array
      * @throws Exceptions\InvalidReferenceNumberException
      * @throws Exceptions\DataNotFoundException
      * @throws Exceptions\Exception
      */
-    public function getNationalIdReport($id_number)
+    public function getNationalIdReport(string $id_number): array
     {
         /** @var DrivingLicenseReportService $service */
         $service = app(NationalIdReportService::class);

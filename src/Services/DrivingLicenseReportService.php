@@ -7,11 +7,11 @@ use CreditInfo\Exceptions\InvalidReferenceNumberException;
 class DrivingLicenseReportService extends GetExternalReportService
 {
     /**
-     * @param $reference
+     * @param string $reference
      * @return array
      * @throws InvalidReferenceNumberException
      */
-    protected function prepareRequest($reference): array
+    protected function prepareRequest(string $reference): array
     {
         if (!preg_match('#^[0-9]{10}$#', $reference)) {
             throw new InvalidReferenceNumberException('Invalid Driving License number. Driving License number consists of 10 numbers only');

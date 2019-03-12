@@ -60,13 +60,13 @@ abstract class GetExternalReportService
     }
 
     /**
-     * @param $registration
+     * @param string $registration
      * @return array
      * @throws DataNotFoundException
      * @throws Exception
      * @throws TimeoutException
      */
-    public function getDetails($registration): array
+    public function getDetails(string $registration): array
     {
         $request = $this->prepareRequest($registration);
 
@@ -80,10 +80,10 @@ abstract class GetExternalReportService
     }
 
     /**
-     * @param $reference
+     * @param string $reference
      * @return array
      */
-    protected function prepareRequest($reference): array
+    protected function prepareRequest(string $reference): array
     {
         $request_name = $this->getRequestName();
         $request_param = $this->getRequestParameterName();
@@ -131,7 +131,12 @@ abstract class GetExternalReportService
         }
     }
 
-    protected function getClassName()
+    /**
+     * Returns name of the current class without namespace
+     *
+     * @return string
+     */
+    protected function getClassName(): string
     {
         $path = explode('\\', __CLASS__);
 
