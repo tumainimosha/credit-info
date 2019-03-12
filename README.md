@@ -130,21 +130,12 @@ $details = $creditInfoService->getNationalIdReport($national_id);
 
 The above methods throws the following exceptions
 
-#### `CreditInfo\Exceptions\Exception` 
-
-This is the package's base exception. All exceptions from this library inherit from it. This should be caught last as a catch-all statement.
-
-#### `CreditInfo\Exceptions\InvalidReferenceNumberException` 
-
-Thrown if supplied reference number fails validation requirements.
-
-#### `CreditInfo\Exceptions\DataNotFoundException` 
-
-Thrown if no data found for given reference number
-
-#### `CreditInfo\Exceptions\TimeoutException` 
-
-Thrown if request times-out
+| Exception                                               | Condition                                                                                                                                     |
+|---------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| `CreditInfo\Exceptions\InvalidReferenceNumberException` | This is the package's base exception. All exceptions from this library inherit from it. <br> This should be caught last as a catch-all statement. |
+| `CreditInfo\Exceptions\InvalidReferenceNumberException` | Thrown if supplied reference number fails validation requirements.                                                                            |
+| `CreditInfo\Exceptions\DataNotFoundException`           | Thrown if no data found for given reference number                                                                                           |
+| `CreditInfo\Exceptions\TimeoutException`                | Thrown if request times-out                                                                                                                   |
 
 See usage below with exception catching
 
