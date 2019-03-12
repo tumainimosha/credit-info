@@ -1,10 +1,11 @@
-# Credit Info (TZ) API
+<p align="center">
+<h1>Credit Info (TZ) API Wrapper for Laravel</h1>
 
 
 [![Latest Stable Version](https://poser.pugx.org/tumainimosha/credit-info/v/stable)](https://packagist.org/packages/tumainimosha/credit-info)
 [![License](https://poser.pugx.org/tumainimosha/credit-info/license)](https://packagist.org/packages/tumainimosha/credit-info)
 [![Total Downloads](https://poser.pugx.org/tumainimosha/credit-info/downloads)](https://packagist.org/packages/tumainimosha/credit-info)
-
+</p>
 
 The Unofficial [Credit Info Tanzania](https://creditinfo.co.tz) API wrapper for Laravel.   
 
@@ -137,6 +138,7 @@ The above methods throws the following exceptions
 | `CreditInfo\Exceptions\DataNotFoundException`           | Thrown if no data found for given reference number                                                                                           |
 | `CreditInfo\Exceptions\TimeoutException`                | Thrown if request timeouts                                                                                                                   |
 
+<br>
 See usage below with exception catching
 
 ```php
