@@ -7,6 +7,7 @@ use CreditInfo\Exceptions\Exception;
 use CreditInfo\Exceptions\InvalidReferenceNumberException;
 use CreditInfo\Exceptions\TimeoutException;
 use CreditInfo\WsClient;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 
 abstract class GetExternalReportService
@@ -56,7 +57,7 @@ abstract class GetExternalReportService
 
         logger("$class_name details found!", $details);
 
-        return array_get($details, 'ReportDetail');
+        return Arr::get($details, 'ReportDetail');
     }
 
     /**
