@@ -123,7 +123,14 @@ abstract class GetExternalReportService
 
             // Success
             case 'DataFound':
-                return json_decode(json_encode($response_xml), true);
+                $xmlToJson = json_encode($response_xml);
+                /**
+                 * Null empty xml fields
+                 * Refer: https://stackoverflow.com/a/15108442/5128251.
+                 */
+                $xmlNullEmptyFields = str_replace(':[]', ':null', $xmlToJson);
+
+                return json_decode($xmlNullEmptyFields, true);
 
             // Error
             case 'Error':
