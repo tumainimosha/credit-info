@@ -128,7 +128,7 @@ abstract class GetExternalReportService
                  * Null empty xml fields
                  * Refer: https://stackoverflow.com/a/15108442/5128251.
                  */
-                $xmlNullEmptyFields = str_replace(':[]', ':null', $xmlToJson);
+                $xmlNullEmptyFields = str_replace(':{}', ':null', $xmlToJson);
 
                 return json_decode($xmlNullEmptyFields, true);
 
