@@ -16,11 +16,11 @@
         "php": ">=7.0",
         "ext-json": "*",
         "ext-simplexml": "*",
-        "ext-soap": "*",
-        "illuminate/support": "~5.7.0|~5.8.0|^6.0|^7.0|^8.0"
+        "ext-soap": "*"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.13",
+        "illuminate/support": "^5.8@dev",
         "orchestra/testbench": "~3.7.0",
         "phpunit/phpunit": "^7.0"
     },
